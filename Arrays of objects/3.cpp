@@ -7,7 +7,6 @@ using namespace std;
 class Kist{
 	private:
 		char name[30];
-		int age,id;
 	public:
 		void getvalue()
 		{
@@ -16,37 +15,40 @@ class Kist{
 			cin>>name;
 			strlwr(name);
 		}
-		void display(int n, Kist x, Kist y[])
+	friend void display(int,Kist[]);
+}student[50];
+void display(int n,Kist y[])
+{
+	Kist temp;
+	int h=0,j=0,k=0;
+	for(h=0;h<n;h++)
+	{
+		for(j=h+1;j<n;j++)
 		{
-			int h,j;
-			for(h=0;h<n;h++)
+			k=strcmp(y[h].name,y[j].name);
+			if(k>0)
 			{
-				for(j=h+1;j,n;j++)
-				{
-					if (strcmp(y[h].name,y[j].name) >0)
-					{
-						x=y[h];
-						y[h]=y[j];
-						y[j]=x;
-					}
-				}
-			}
-			cout<<endl<<"Details of students in alphabetical order : ";
-			for(h=0;h<n;h++)
-			{
-				cout<<endl<<"Name : "<<y[h].name;
+				temp=y[h];
+				y[h]=y[j];
+				y[j]=temp;
 			}
 		}
-}student[50],temp;
+	}
+	cout<<endl<<"Name of students in alphabetical order : ";
+	for(h=0;h<n;h++)
+	{
+		cout<<endl<<" "<<y[h].name;
+	}
+}
 int main()
 {
-	int i=0,h=0,num=0;
+	int i=0,num=0;
 	cout<<endl<<"Enter the number of students : ";
 	cin>>num;
 	for(i=0;i<num;i++)
 	{
 		student[i].getvalue();
 	}
-	student[i].display(num, temp, student);
+	display(num,student);
 	return 0;
 }
