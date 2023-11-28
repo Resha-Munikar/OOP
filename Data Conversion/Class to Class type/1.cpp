@@ -1,3 +1,4 @@
+//Program to convert one class to another class
 #include<iostream>
 using namespace std;
 class Inventory1{
