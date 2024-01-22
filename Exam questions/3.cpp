@@ -19,7 +19,7 @@ int main()
 		obj<<string;
 		obj.close();
 	}
-	obj.open("file.txt",ios::in);
+	obj.open("file.txt",ios::in); 
 	if(!obj)
 	{
 		cout<<endl<<"No such file";
